@@ -35,6 +35,20 @@ class Order(models.Model):
        return f"Order {self.order_id}"
    
 
+class SimulationResult(models.Model):
+   created_at = models.DateTimeField(default=timezone.now)
+   input_num_drivers = models.PositiveIntegerField()
+   input_start_time = models.TimeField()
+   input_max_hours = models.PositiveIntegerField()
+
+   # KPIs
+   total_profit = models.IntegerField()
+   efficiency_score = models.FloatField()
+   on_time = models.IntegerField()
+   late = models.IntegerField()
+   fuel_cost_total = models.IntegerField()
+
+   details = models.JSONField(default=dict)
 
    
 
