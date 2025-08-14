@@ -1,4 +1,3 @@
-# backend/api/management/commands/import_drivers.py
 from django.core.management.base import BaseCommand
 import csv, json
 from api.models import Driver
