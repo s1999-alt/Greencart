@@ -10,16 +10,55 @@ import Dashboard from "./pages/Dashboard";
 
 
 
-function Nav(){
+function Nav() {
   const { token, logout } = useAuth();
-  return <nav style={{display:"flex", gap:"1rem", padding:"0.5rem", borderBottom:"1px solid #eee"}}>
-    <Link to="/">Dashboard</Link>
-    <Link to="/simulation">Simulation</Link>
-    <Link to="/drivers">Drivers</Link>
-    <Link to="/routes">Routes</Link>
-    <Link to="/orders">Orders</Link>
-    {token ? <button onClick={logout}>Logout</button> : <Link to="/login">Login</Link>}
-  </nav>
+
+  return (
+    <nav className="bg-gray-800 text-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14">
+          
+          {/* Left links */}
+          <div className="flex items-center space-x-6">
+            <Link to="/" className="text-lg font-semibold hover:text-green-400 transition">
+              Dashboard
+            </Link>
+            <Link to="/simulation" className="hover:text-green-400 transition">
+              Simulation
+            </Link>
+            <Link to="/drivers" className="hover:text-green-400 transition">
+              Drivers
+            </Link>
+            <Link to="/routes" className="hover:text-green-400 transition">
+              Routes
+            </Link>
+            <Link to="/orders" className="hover:text-green-400 transition">
+              Orders
+            </Link>
+          </div>
+
+          {/* Right actions */}
+          <div>
+            {token ? (
+              <button
+                onClick={logout}
+                className="bg-red-500 hover:bg-red-600 px-4 py-1 rounded-lg transition"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="bg-green-500 hover:bg-green-600 px-4 py-1 rounded-lg transition"
+              >
+                Login
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
 }
 
 export default function App(){
