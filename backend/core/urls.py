@@ -14,10 +14,10 @@ router.register(r"api/simulationresult", SimulationResultViewSet, basename="simu
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("/", include(router.urls)),
+    path('api/admin/', admin.site.urls),
+    path("api/", include(router.urls)),
 
     path("api/simulate/", SimulationView.as_view()),
-    path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]
