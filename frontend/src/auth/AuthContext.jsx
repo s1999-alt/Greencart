@@ -7,7 +7,7 @@ export const useAuth = ()=>useContext(AuthCtx);
 export default function AuthProvider({children}){
   const [token,setToken]=useState(localStorage.getItem("token"));
   const login = async (username,password)=>{
-    const {data} = await API.post("/api/token/", {username,password});
+    const {data} = await API.post("/token/", {username,password});
     localStorage.setItem("token", data.access);
     setToken(data.access);
   };
