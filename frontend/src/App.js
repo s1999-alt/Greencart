@@ -1,6 +1,12 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import AuthProvider, { useAuth } from "./auth/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
+import Simulation from "./pages/Simulation";
+import Drivers from "./pages/Drivers";
+import RoutesPage from "./pages/Routes";
+import Orders from "./pages/Orders";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 
 

@@ -106,7 +106,7 @@ class SimulationView(APIView):
             bonus = int(round(order.value_rs * 0.10))
           penalty = 50 if is_late else 0
           profit = order.value_rs + bonus - penalty - fuel
-          otal_profit += profit
+          total_profit += profit
           fuel_cost_total += fuel
           details.append({"order_id": order.order_id, "allocated": False, "late": is_late,
                           "predicted_min": predicted_min, "fuel": fuel, "bonus": bonus, "penalty": penalty, "profit": profit})
@@ -156,10 +156,11 @@ class SimulationView(APIView):
 
     return Response(SimulationResultSerializer(sim).data, status=200)
 
-      
 
-
-
+class SimulationResultViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = SimulationResult.objects.all().order_by("-created_at")
+    serializer_class = SimulationResultSerializer
+    permission_classes = [IsAuthenticated]
 
 
 
